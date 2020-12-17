@@ -20,7 +20,7 @@ var daydate = day.toLocaleDateString('en-IN',options);
 
 app.get('/', (req, res) => {
     
-    res.render('home', {dayval:daydate, items:items, route:'/'}); 
+    res.render('home', {dayval:'Personal List, ' + daydate, items:items, route:'/'}); 
 });
 
 app.get('/work', (req, res) => {
