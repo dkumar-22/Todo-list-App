@@ -8,28 +8,30 @@
 
 <body>
 	<div class="box" id="heading">
-		<h1><%= dayval %>
+		<h1>
+			<%= dayval %>
 		</h1>
 	</div>
 
 
 	<div class="box">
 		<% for(var i=0; i<items.length; i++) { %>
-			<div class="item">
-				<input type="checkbox">
-				<p>
-					<%= items[i] %>
-				</p>
-			</div>
+			<form action="/delete" method="POST">
+				<div class="item">
 
+					<input type="checkbox" name="cb" value=<%= items[i]._id %> onchange="this.form.submit()">
+					<p>
+						<%= items[i].name %>
+					</p>
+
+				</div>
+			</form>
 			<% } %>
 				<form action="<%=route%>" method="post" class="item">
 					<input type="text" name="additem" placeholder="Add Task" autocomplete="off">
 					<button type="submit" name="key">+</button>
 				</form>
 	</div>
-
-
 </body>
 
 </html>
